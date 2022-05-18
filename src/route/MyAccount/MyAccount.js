@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import axios from "axios";
-import { updateUser } from '../../reducers/UserReducer';
+import { updateUser } from '../../redux/UserReducer';
 
 import './MyAccount.scss';
 
