@@ -1,0 +1,44 @@
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.BlogsCategories {
+  .container {
+    .row {
+      .Menu {
+        .nav-tabs {
+          border-bottom: unset;
+
+          .nav-item {
+            .nav-link {
+              color: black
+            }
+
+            .active {
+              background-color: #f2f4f7;
+              border-color: #babdc0;
+              border-radius: 3px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loader {
+    width: 120px;
+    height: 120px;
+    border: 16px solid #e7e7e7;
+    border-radius: 50%;
+    border-top: 16px solid #212529;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin: auto;
+  }
+}

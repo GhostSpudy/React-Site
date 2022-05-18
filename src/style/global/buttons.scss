@@ -1,0 +1,26 @@
+// @import "./variables.scss";
+
+// :root {
+//     --button-padding: 10px 25px;
+//     --button-min-width: 275px;
+// }
+
+// .button-rtu {
+
+//     &.btn-primary {
+//         border: solid 1px darken($rtu-green, 10%);
+//         background-color: $rtu-green;
+//         color: $white;
+//         min-width: var(--button-min-width);
+
+//         &:hover, &:focus {
+//             background-color: $rtu-light-green;
+//             border: solid 1px darken($rtu-light-green, 10%);
+//         }
+
+//         &:active {
+//             border: solid 1px darken($rtu-green, 20%);
+//             background-color: darken($rtu-green, 10%);
+//         }
+//     }
+// }

@@ -1,0 +1,20 @@
+.Profile {
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .UserData {
+    max-width: 500px;
+    margin: auto;
+
+    .button {
+      text-align: center;
+
+      button {
+        width: 60%;
+        margin: 15px;
+      }
+    }
+  }
+}

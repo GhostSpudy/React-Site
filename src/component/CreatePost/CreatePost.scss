@@ -1,0 +1,19 @@
+.CreatePost {
+  .form-floating {
+    margin-top: 20px;
+
+    .form-control {
+      height: 100px;
+    }
+  }
+
+  .button {
+    display: flex;
+
+    button {
+      margin: 10px auto 15px auto;
+      max-width: 300px;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.Header {
+  .container {
+    .ButtonList {
+      button {
+        color: #ffffff8c;
+      }
+    }
+  }
+}
+
+.SignUp {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        form div:not(:first-child) {
+          .form-label {
+            margin: 10px 0 5px 0;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 20px;
+
+          button {
+            width: 45%;
+          }
+        }
+
+        .error-text {
+          color: #dc3545;
+
+          p {
+            margin: 10px 0 10px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.SignIn {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        form div:not(:first-child) {
+          .form-label {
+            margin: 10px 0 5px 0;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 20px;
+
+          button {
+            width: 45%;
+          }
+        }
+
+        .error-text {
+          color: #dc3545;
+
+          p {
+            margin: 10px 0 10px 0;
+          }
+        }
+      }
+    }
+  }
+}

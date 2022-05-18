@@ -1,0 +1,109 @@
+.BlogsCategories {
+  .container {
+    .row {
+      .Body {
+        .tab-content {
+          margin-top: 48px;
+
+          .tab-pane {
+            .PostInfo {
+              display: flex;
+              align-items: flex-end;
+              justify-content: space-between;
+              
+              .Author {
+                display: flex;
+                align-items: flex-end;
+              }
+
+              .Edited {
+                display: flex;
+                font-size: 12px;
+
+                p {
+                  margin-right: 15px;
+                  font-size: 11px;
+                }
+              }
+
+              .Author p:first-child {
+                font-size: 20px;
+                font-weight: bold;
+              }
+
+              .Author p:not(:first-child) {
+                margin-left: 10px;
+                font-size: 11px;
+              }
+
+              .Edited p:first-child {
+                font-weight: bold;
+                margin-right: 5px;
+              }
+            }
+
+            .PostBody {
+              border: 1px solid rgba(0,0,0,0.2);
+              border-radius: 5px;
+
+              p {
+                padding: 15px;
+              }
+            }
+
+            .PostControl {
+              display: flex;
+              justify-content: space-between;
+
+              .Likes {
+                p {
+                  margin-left: 10px;
+                }
+              }
+
+              .ChangePost {
+                display: flex;
+
+                p {
+                  margin: 0 15px 0 0;
+                }
+              }
+            }
+
+            p {
+              margin: 0;
+            }
+          }
+        }
+
+        .tab-content .tab-pane:not(:first-child) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+.EditWindow {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        .form-floating {
+          .form-control {
+            height: 200px;
+          }
+        }
+
+        .button {
+          display: flex;
+          margin-top: 20px;
+
+          button {
+            width: 60%;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+}

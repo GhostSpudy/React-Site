@@ -1,17 +1,17 @@
-// @import "../../src/style/global/buttons";
-// @import "../../src/style/global/general";
-// @import "../../src/style/global/mixins";
-// @import "../../src/style/global/variables";
+@import "./src/style/global/buttons";
+@import "./src/style/global/general";
+@import "./src/style/global/mixins";
+@import "./src/style/global/variables";
 
-// html {
-//   height: 100%;
-//   box-sizing: border-box;
-// }
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 
-// body {
-//   position: relative;
-//   margin: 0;
-//   padding-bottom: 6rem;
-//   min-height: 100%;
-//   font-family: "Helvetica Neue", Arial, sans-serif;
-// }
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  // font-family: "Helvetica Neue", Arial, sans-serif;
+}

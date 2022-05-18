@@ -1,0 +1,19 @@
+.Categories {
+  .nav-item {
+      display: flex;
+      position: relative;
+
+    .nav-link {
+      flex: 1;
+      cursor: pointer;
+    }
+
+    p {
+      position: absolute;
+      width: 40px;
+      right: 0;
+      margin: 9px;
+      cursor: not-allowed;
+    }
+  }
+}
