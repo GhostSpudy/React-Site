@@ -1,104 +1,23 @@
 import React, { PureComponent } from 'react';
 import { Tab, Modal, Button, Form, FloatingLabel } from 'react-bootstrap';
-import axios from "axios";
-import { connect } from 'react-redux';
 
 import './RenderPosts.scss';
 
-const mapStateToProps = (state) => {
-  return {
-    admin: state.admin,
-    currentUser: state.user
-  }
-};
-
-const mapDispatchToProps =  (dispatch) => {
-  return {}
-};
-
-class RenderPosts extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.handleChangeTextarea = this.handleChangeTextarea.bind(this);
-
-    this.state = {
-      showEditWindow: false,
-      validated: false,
-      handleChangeTextarea: '',
-      currentPost: {}
-    };
-  }
-
-  handleChangeTextarea(event) {
-    this.setState({handleChangeTextarea: event.target.value});
-  }
-
-  likeThePost(postId, postLikes) {
-    const { currentCategory, updateCategories } = this.props;
-
-    axios.put(`https://62828b39ed9edf7bd88644ad.mockapi.io/api/categories/${currentCategory}/posts/${postId}`, {
-      likes: ++postLikes
-    })
-      .then(res => {
-        updateCategories();
-      })
-      .catch(err => {
-        throw new Error(err)
-      })
-  }
-
-  deletePost(postId) {
-    const { currentCategory, updateCategories } = this.props;
-
-    axios.delete(`https://62828b39ed9edf7bd88644ad.mockapi.io/api/categories/${currentCategory}/posts/${postId}`)
-      .then(res => {
-        updateCategories();
-      })
-      .catch(err => {
-        throw new Error(err)
-      })
-  }
-
-  handleEditPost = (event) => {
-    const form = event.currentTarget;
-    event.preventDefault();
-
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-    }
-
-    if (form.checkValidity() === true) {
-      const { updateCategories } = this.props;
-      const { currentPost, handleChangeTextarea } = this.state;
-      const editedDate = new Date().toLocaleString();
-
-      if (currentPost.text !== handleChangeTextarea) {
-        axios.put(`https://62828b39ed9edf7bd88644ad.mockapi.io/api/categories/${currentPost.categoryId}/posts/${currentPost.id}`, {
-          text: handleChangeTextarea, edited: true, editedDate
-        })
-          .then(res => {
-            updateCategories();
-            this.setState({ showEditWindow: false })
-          })
-          .catch(err => {
-            throw new Error(err)
-          })
-      } else {
-        this.setState({ showEditWindow: false })
-      }
-    }
-
-    this.setState({validated: true});
-  }
-
+class RenderPostsComponent extends PureComponent {
   editPostWindow() {
-    const { showEditWindow, validated, handleChangeTextarea } = this.state;
+    const {
+      showEditWindow,
+      validated,
+      handleChangeText,
+      handleEditPost,
+      handleChangeTextarea,
+      closeEditor
+    } = this.props;
 
     return (
     <Modal
         show={showEditWindow}
-        onHide={() => this.setState({ showEditWindow: false })}
+        onHide={() => closeEditor()}
         className='EditWindow'
       >
         <Modal.Header closeButton>
@@ -108,15 +27,15 @@ class RenderPosts extends PureComponent {
           <Form
             noValidate
             validated={validated}
-            onSubmit={this.handleEditPost}
+            onSubmit={handleEditPost}
           >
             <FloatingLabel controlId='floatingTextarea' label='Uzrakstīt ierakstu'>
               <Form.Control
                 required
                 as='textarea'
                 placeholder='Ievadiet tekstu'
-                value={handleChangeTextarea}
-                onChange={this.handleChangeTextarea}
+                value={handleChangeText}
+                onChange={handleChangeTextarea}
               />
             </FloatingLabel>
             <div className='button'>
@@ -129,7 +48,12 @@ class RenderPosts extends PureComponent {
   }
 
   renderChangePostButtons(post) {
-    const { currentUser: { isAuth, currentUser }, admin: { isAdmin, adminEmail } } = this.props;
+    const {
+      currentUser: { isAuth, currentUser },
+      admin: { isAdmin, adminEmail },
+      deletePost,
+      openEditor
+    } = this.props;
     const admin = isAdmin === true && adminEmail === 'admin@admin.admin';
 
     if (!isAuth && !Object.keys(currentUser).length && !admin) {
@@ -142,19 +66,15 @@ class RenderPosts extends PureComponent {
 
     return (
       <div className='ChangePost'>
-        <p onClick={() => this.setState({
-            showEditWindow: true,
-            currentPost: post,
-            handleChangeTextarea: post.text
-          })}
+        <p onClick={() => openEditor(post)}
         >Rediģēt</p>
-        <p onClick={() => this.deletePost(post.id)}>Dzest</p>
+        <p onClick={() => deletePost(post.id)}>Dzest</p>
       </div>
     )
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, likeThePost } = this.props;
 
     return (
       <>
@@ -177,7 +97,7 @@ class RenderPosts extends PureComponent {
                 </div>
                 <div className='PostControl'>
                   <div className='Likes'>
-                    <p onClick={() => this.likeThePost(post.id, post.likes)}>Patika {post.likes}</p>
+                    <p onClick={() => likeThePost(post.id, post.likes)}>Patika {post.likes}</p>
                   </div>
                   { this.renderChangePostButtons(post) }
                 </div>
@@ -191,4 +111,4 @@ class RenderPosts extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RenderPosts)
+export default RenderPostsComponent;

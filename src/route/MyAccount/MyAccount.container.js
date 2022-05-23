@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import axios from "axios";
 import { updateUser } from '../../redux/UserReducer';
 
-import './MyAccount.scss';
+import MyAccount from './MyAccount.component';
 
 const mapStateToProps = (state) => {
   return {
@@ -18,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-class MyAccount extends PureComponent {
+class MyAccountContainer extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -26,6 +25,7 @@ class MyAccount extends PureComponent {
     this.handleChangeSurname = this.handleChangeSurname.bind(this);
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleEditData = this.handleEditData.bind(this);
 
     this.state = {
       validated: false,
@@ -40,7 +40,7 @@ class MyAccount extends PureComponent {
     const isAuthFromStorage = localStorage.getItem('isAuth') === 'true';
     const userFromStorage = JSON.parse(localStorage.getItem('currentUser'));
 
-    if (isAuthFromStorage) {
+    if (isAuthFromStorage && Object.keys(userFromStorage).length !== 0) {
       this.setState({
         name: userFromStorage.name,
         surname: userFromStorage.surname,
@@ -48,6 +48,25 @@ class MyAccount extends PureComponent {
         password: userFromStorage.password
       });
     }
+  }
+
+  containerProps() {
+    const { currentUser } = this.props;
+    const { validated, name, surname, email, password } = this.state;
+
+    return {
+      handleChangeName: this.handleChangeName,
+      handleChangeSurname: this.handleChangeSurname,
+      handleChangeEmail: this.handleChangeEmail,
+      handleChangePassword: this.handleChangePassword,
+      handleEditData: this.handleEditData,
+      currentUser,
+      validated,
+      name,
+      surname,
+      email,
+      password
+    };
   }
 
   handleChangeName(event) {
@@ -116,66 +135,12 @@ class MyAccount extends PureComponent {
   }
 
   render() {
-    const { validated, name, surname, email, password } = this.state;
-
     return (
-      <main className='Profile'>
-        <Container>
-          <h2> {name} </h2>
-          <Form
-            noValidate
-            validated={validated}
-            onSubmit={this.handleEditData}
-            className='UserData'
-          >
-            <Form.Group controlId='fromBasicName'>
-              <Form.Label>Vards</Form.Label>
-              <Form.Control
-                required
-                type='text'
-                placeholder='Ievadiet vardu'
-                value={name}
-                onChange={this.handleChangeName}
-              />
-            </Form.Group>
-            <Form.Group controlId='fromBasicLastName'>
-              <Form.Label>Uzvards</Form.Label>
-              <Form.Control
-                required
-                type='text'
-                placeholder='Ievadiet uzvardu'
-                value={surname}
-                onChange={this.handleChangeSurname}
-              />
-            </Form.Group>
-            <Form.Group controlId='fromBasicEmail'>
-              <Form.Label> E-pasts </Form.Label>
-              <Form.Control
-                required
-                type='email'
-                placeholder='Ievadiet e-pastu'
-                value={email}
-                onChange={this.handleChangeEmail}
-              />
-            </Form.Group>
-            <Form.Group controlId='fromBasicPassword'>
-              <Form.Label> Parole </Form.Label>
-              <Form.Control
-                required
-                type='password'
-                placeholder='Ievadiet paroli'
-                value={password}
-                onChange={this.handleChangePassword}
-              />
-            </Form.Group>
-            <div className='button'>
-              <Button variant='primary' type='submit'> Rediģēt </Button>
-            </div>
-          </Form>
-        </Container>
-      </main>
+      <MyAccount 
+        { ...this.containerProps() }
+      />
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyAccount)
+export default connect(mapStateToProps, mapDispatchToProps)(MyAccountContainer);

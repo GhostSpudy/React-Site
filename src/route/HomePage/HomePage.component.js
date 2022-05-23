@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Container } from "react-bootstrap";
-import HomeSlider from '../../component/HomeSlider/HomeSlider.component';
-import PopularBlogBlock from '../../component/PopularBlogBlock/PopularBlogBlock.component';
+import HomeSlider from '../../component/HomeSlider';
+import PopularBlogBlock from '../../component/PopularBlogBlock';
 
 import './HomePage.scss';
 

@@ -367,8 +367,7 @@ class Header extends PureComponent {
     return (
       <Button
         variant='dark'
-        className='mr-2'
-        onClick={ () => this.setState({ showSignIn: true, validated: false }) }
+        onClick={() => this.setState({ showSignIn: true, validated: false })}
       >
         Ielagoties/Reģistrēties
       </Button>
@@ -381,14 +380,14 @@ class Header extends PureComponent {
     if (isAuth && Object.keys(currentUser).length !== 0) {
       return (
         <>
-          <Link to='/profile' className='nav-link'> {currentUser.name} </Link>
-          <Button
-            variant='dark'
-            className='mr-2'
-            onClick={ () => logout() }
+          <Link to='/profile' className='nav-link'>{currentUser.name}</Link>
+          <Link
+            to='/'
+            className='nav-link'
+            onClick={() => logout()}
           >
             Iziet
-          </Button>
+          </Link>
         </>
       );
     }
@@ -403,13 +402,13 @@ class Header extends PureComponent {
       return (
         <>
           <Link to='/' className='nav-link'> Admin </Link>
-          <Button
-            variant='dark'
-            className='mr-2'
-            onClick={ () => logoutAdmin() }
+          <Link
+            to='/'
+            className='nav-link'
+            onClick={() => logoutAdmin()}
           >
             Iziet
-          </Button>
+          </Link>
         </>
       );
     }

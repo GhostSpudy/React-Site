@@ -8,7 +8,7 @@ export default class PopularBlogBlock extends PureComponent {
   render() {
     return (
       <Container>
-        <h2 className='text-center m-4'>Mājas lapas jaunumi</h2>
+        <h2 className='text-center m-4'>Bloga jaunumi</h2>
         <div>
           At vero eos et accusamus et iusto odio dignissimos ducimus, consectetur
           adipiscing elit, ut et voluptates repudiandae sint et molestiae non recusandae.
