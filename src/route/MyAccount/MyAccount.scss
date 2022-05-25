@@ -1,19 +1,36 @@
+@import "../../style/global/mixins.scss";
+
 .Profile {
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-  }
+  .container {
+    min-height: calc(100vh - 89px);
 
-  .UserData {
-    max-width: 500px;
-    margin: auto;
+    @include desktop {
+      height: calc(100vh - 111px);
+      min-height: unset;
+    }
 
-    .button {
+    h2 {
       text-align: center;
+      padding-top: 20px;
+    }
 
-      button {
-        width: 60%;
-        margin: 15px;
+    form div:not(:first-child) {
+      .form-label {
+        margin: 10px 0 5px 0;
+      }
+    }
+
+    .UserData {
+      max-width: 500px;
+      margin: auto;
+
+      .button {
+        text-align: center;
+
+        button {
+          width: 60%;
+          margin: 15px;
+        }
       }
     }
   }

@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { Container, Tab, Nav, Row, Col } from 'react-bootstrap';
 import businessCat from '../../style/icons/business-cat.jpg';
 
+import './AboutUs.style.scss';
+
 export default class AboutUs extends PureComponent {
   render() {
     return (
@@ -10,7 +12,7 @@ export default class AboutUs extends PureComponent {
           <Tab.Container id='ledt-tabs-example' defaultActiveKey='1'>
             <Row>
               <Col sm={3}>
-                <Nav variant='pills' className='flex-column mt-5 mb-5'>
+                <Nav variant='pills' className='flex-column'>
                   <Nav.Item>
                     <Nav.Link eventKey='1'>Test 1</Nav.Link>
                   </Nav.Item>
@@ -20,7 +22,7 @@ export default class AboutUs extends PureComponent {
                 </Nav>
               </Col>
               <Col sm={9}>
-                <Tab.Content className='mt-5 mb-5'>
+                <Tab.Content>
                   <Tab.Pane eventKey='1'>
                     <img
                       src={ businessCat }
@@ -40,6 +42,9 @@ export default class AboutUs extends PureComponent {
                 </Tab.Content>
                 <Tab.Content>
                   <Tab.Pane eventKey='2'>
+                    <p>Tālrunis: +371 12345678</p>
+                    <p>E-pasts: AtvertsBlogs@gmail.com</p>
+                    <p>Palīdzības dienesta darba laiks: Darba dienās no 10.00 līdz 16.00</p>
                     <p>
                       At vero eos et accusamus et iusto odio dignissimos ducimus, consectetur
                       adipiscing elit, ut et voluptates repudiandae sint et molestiae non recusandae.

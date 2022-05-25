@@ -1,3 +1,5 @@
+@import "../../style/global/mixins.scss";
+
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
@@ -9,9 +11,32 @@
 }
 
 .BlogsCategories {
+  min-height: calc(100vh - 89px);
+
+  @include desktop {
+    height: calc(100vh - 111px);
+    min-height: unset;
+  }
+
   .container {
     .row {
       .Menu {
+        .Categories {
+          display: block;
+          overflow-y: auto;
+          box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+          max-height: 170px;
+          padding: 1px 1px 1px 0;
+          margin: 20px 0 20px 0;
+          
+          @include desktop {
+            max-height: 400px;
+            margin: 40px 0 30px 0;
+          }
+
+          @include scrollbar;
+        }
+
         .nav-tabs {
           border-bottom: unset;
 
@@ -29,16 +54,5 @@
         }
       }
     }
-  }
-
-  .loader {
-    width: 120px;
-    height: 120px;
-    border: 16px solid #e7e7e7;
-    border-radius: 50%;
-    border-top: 16px solid #212529;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-    margin: auto;
   }
 }

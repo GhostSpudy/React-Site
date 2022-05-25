@@ -1,0 +1,31 @@
+@import "../../style/global/mixins.scss";
+
+.AboutUs {
+  @include desktop {
+    height: calc(100vh - 111px);
+  }
+
+  .container {
+    .row {
+      .col-sm-3 {
+        .flex-column {
+          margin: 20px 0 20px 0;
+
+          @include desktop {
+            margin: 40px 0 40px 0;
+          }
+        }
+      }
+
+      .col-sm-9 {
+        .tab-content {
+          margin: 0 0 20px 0;
+
+          @include desktop {
+            margin: 40px 0 40px 0;
+          }
+        }
+      }
+    }
+  }
+}

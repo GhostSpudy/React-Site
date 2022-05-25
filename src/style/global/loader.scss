@@ -1,0 +1,10 @@
+.loader {
+  width: 120px;
+  height: 120px;
+  border: 16px solid #e7e7e7;
+  border-radius: 50%;
+  border-top: 16px solid #212529;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}

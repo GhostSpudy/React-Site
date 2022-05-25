@@ -34,8 +34,7 @@ export default class BlogsCategoriesComponent extends PureComponent {
               <Col sm={3} className="Menu">
                 <Nav
                   variant='tabs'
-                  className='Categories flex-column mt-5 mb-5 scrollspy-example'
-                  data-bs-spy="scroll"
+                  className='Categories flex-column'
                   onSelect={handleSelectCategory}
                 >
                   {<RenderCategories

@@ -1,9 +1,26 @@
+@import "../../style/global/mixins.scss";
+
 .BlogsCategories {
   .container {
     .row {
       .Body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        @include desktop {
+          padding-top: 40px;
+        }
+
         .tab-content {
-          margin-top: 48px;
+          overflow-y: auto;
+          max-height: 380px;
+          padding: 0 10px;
+
+          @include scrollbar;
+
+          @include desktop {
+            max-height: calc(100vh - 339px);
+          }
 
           .tab-pane {
             .PostInfo {
@@ -57,6 +74,7 @@
 
               .Likes {
                 p {
+                  cursor: pointer;
                   margin-left: 10px;
                 }
               }
@@ -65,6 +83,7 @@
                 display: flex;
 
                 p {
+                  cursor: pointer;
                   margin: 0 15px 0 0;
                 }
               }
