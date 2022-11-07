@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/React-Site/static/css/main.bd3c689d.css",
+    "main.js": "/React-Site/static/js/main.e507455b.js",
+    "static/media/Forest-5.jpg": "/React-Site/static/media/Forest-5.100b5892bd8d27439d9c.jpg",
+    "static/media/Forest-3.jpg": "/React-Site/static/media/Forest-3.0e037139e2b5b792fb67.jpg",
+    "static/media/Forest-2.jpg": "/React-Site/static/media/Forest-2.30a5804be95c1f716405.jpg",
+    "static/media/Forest-1.jpg": "/React-Site/static/media/Forest-1.e1867ebb47406a008118.jpg",
+    "static/media/Forest-4.jpg": "/React-Site/static/media/Forest-4.a377d360c6920c8b3d14.jpg",
+    "static/media/Error_404.jpg": "/React-Site/static/media/Error_404.291c471e5ac5782df46c.jpg",
+    "static/media/business-cat.jpg": "/React-Site/static/media/business-cat.f3491b8769a4eaa4305d.jpg",
+    "index.html": "/React-Site/index.html",
+    "main.bd3c689d.css.map": "/React-Site/static/css/main.bd3c689d.css.map",
+    "main.e507455b.js.map": "/React-Site/static/js/main.e507455b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd3c689d.css",
+    "static/js/main.e507455b.js"
+  ]
+}
