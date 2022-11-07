@@ -9,7 +9,7 @@ export default class Footer extends PureComponent {
       <footer className='Footer'>
         <Container>
           <Navbar.Brand>
-            <p className='Text text-center'>&copy; Atvērts blogs 2022</p>
+            <p className='Text text-center'>&copy; Aleksejs Ivanovs</p>
           </Navbar.Brand>
         </Container>
       </footer>

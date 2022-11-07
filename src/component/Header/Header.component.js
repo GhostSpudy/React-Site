@@ -380,6 +380,7 @@ class Header extends PureComponent {
     if (isAuth && Object.keys(currentUser).length !== 0) {
       return (
         <>
+          <Link to='/python' className='nav-link'>Python</Link>
           <Link to='/profile' className='nav-link'>{currentUser.name}</Link>
           <Link
             to='/'
@@ -401,6 +402,7 @@ class Header extends PureComponent {
     if (isAdmin && adminEmail === 'admin@admin.admin') {
       return (
         <>
+          <Link to='/python' className='nav-link'>Python</Link>
           <Link to='/' className='nav-link'> Admin </Link>
           <Link
             to='/'

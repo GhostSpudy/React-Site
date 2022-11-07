@@ -1,0 +1,7 @@
+@import "../../style/global/mixins.scss";
+
+.PythonR {
+  @include desktop {
+    height: calc(100vh - 111px);
+  }
+}

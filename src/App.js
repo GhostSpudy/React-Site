@@ -5,6 +5,7 @@ import HomePage from './route/HomePage';
 import AboutUs from './route/AboutUs';
 import BlogsCategories from './route/BlogsCategories';
 import MyAccount from './route/MyAccount';
+import PythonR from './route/PythonR';
 import NoMatch from './route/NoMatch';
 
 import Header from './component/Header/Header.component';
@@ -24,6 +25,7 @@ export default class App extends PureComponent {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blogs-categories" element={<BlogsCategories />} />
           <Route path="/profile" element={<MyAccount />} />
+          <Route path="/python" element={<PythonR />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
 
